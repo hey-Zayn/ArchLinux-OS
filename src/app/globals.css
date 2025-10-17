@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 71% 4%; /* Almost black */
+    --foreground: 210 40% 98%; /* White */
+    --card: 222 47% 11%; /* Dark blue-gray */
+    --card-foreground: 210 40% 96%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%; /* Bright blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 217 91% 60%;
+    --radius: 0.5rem;
+
+    --terminal-bg: hsl(222, 47%, 11%);
+    --terminal-bgLight: hsl(222, 47%, 18%);
+    --terminal-green: hsl(140, 50%, 60%);
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 96%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 217 91% 60%;
+
+    --terminal-bg: hsl(222, 47%, 11%);
+    --terminal-bgLight: hsl(222, 47%, 18%);
+    --terminal-green: hsl(140, 50%, 60%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .terminal-text {
+    color: hsl(var(--foreground));
+  }
+  .terminal-bright {
+    color: hsl(var(--primary));
+  }
+  .terminal-glow {
+     color: hsl(var(--primary));
+  }
+  .terminal-cyan { color: #56B6C2; }
+  .terminal-green { color: #98C379; }
+  .terminal-yellow { color: #E5C07B; }
+  .terminal-blue { color: #61AFEF; }
+  .terminal-dim { color: hsl(var(--muted-foreground)); }
+
+  .caret-primary {
+    caret-color: hsl(var(--primary));
+  }
+
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .window-controls {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #1e1e2e;
+  }
+
+  .window-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  .close { background-color: #ff5f57; }
+  .minimize { background-color: #febc2e; }
+  .maximize { background-color: #28c840; }
+}

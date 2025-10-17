@@ -1,0 +1,24 @@
+diff --git a/node_modules/xterm-addon-fit/lib/FitAddon.js b/node_modules/xterm-addon-fit/lib/FitAddon.js
+index 548a649..b988a2f 100644
+--- a/node_modules/xterm-addon-fit/lib/FitAddon.js
++++ b/node_modules/xterm-addon-fit/lib/FitAddon.js
+@@ -14,6 +14,7 @@ var FitAddon = (function () {
+     function FitAddon() {
+     }
+     FitAddon.prototype.activate = function (terminal) {
++        this.terminal = terminal;
+         this._terminal = terminal;
+     };
+     FitAddon.prototype.dispose = function () { };
+diff --git a/node_modules/xterm-addon-fit/typings/FitAddon.d.ts b/node_modules/xterm-addon-fit/typings/FitAddon.d.ts
+index 3271790..53fdec7 100644
+--- a/node_modules/xterm-addon-fit/typings/FitAddon.d.ts
++++ b/node_modules/xterm-addon-fit/typings/FitAddon.d.ts
+@@ -2,6 +2,7 @@ import { Terminal, IDisposable } from 'xterm';
+ export declare class FitAddon implements IDisposable {
+     private _terminal;
++    terminal: Terminal | undefined;
+     constructor();
+     public activate(terminal: Terminal): void;
+     public dispose(): void;
+
