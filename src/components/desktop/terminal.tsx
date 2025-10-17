@@ -14,30 +14,60 @@ const Terminal = () => {
   const bootMessagesContainerRef = useRef<HTMLDivElement>(null);
   const [neofetchArt, setNeofetchArt] = useState('');
 
-  useEffect(() => {
-    // This will only run on the client, after hydration
-    const randomUptime = Math.floor(Math.random() * 100);
-    setUptime(randomUptime);
-    setNeofetchArt(`
-       _,met$$$$$gg.          guest@portfolio.dev
-    ,g$$$$$$$$$$$$$$$P.       ─────────────────────
-  ,g$$P"     """Y$$.".        OS: Portfolio Linux
- ,$$P'              \`$$$.     Host: Terminal v2.0
-',$$P       ,ggs.     \`$$b:   Kernel: 6.1.0-dev
-\`d$$'     ,$P"'   .    $$$    Uptime: ${randomUptime} days
- $$P      d$'     ,    $$P    Shell: bash 5.2.0
- $$:      $$.   -    ,d$$'    Theme: Minimal-Dark
- $$;      Y$b._   _,d$P'      CPU: i7-Developer
- Y$$.    \`.\`"Y$$$$P"'         GPU: NVIDIA RTX Skills
- \`$$b      "-.__              Memory: 32GB
-  \`Y$$                        Disk: 1TB SSD
-   \`Y$$.
-     \`$$b.
-       \`Y$$b.
-          \`"Y$b._
-              \`"""
-  `);
-  }, []);
+//   useEffect(() => {
+//     // This will only run on the client, after hydration
+//     const randomUptime = Math.floor(Math.random() * 100);
+//     setUptime(randomUptime);
+//     setNeofetchArt(`
+//        _,met$$$$$gg.          Arch linux
+//     ,g$$$$$$$$$$$$$$$P.       ─────────────────────
+//   ,g$$P"     """Y$$.".        OS: Portfolio Linux
+//  ,$$P'              \`$$$.     Host: Terminal v2.0
+// ',$$P       ,ggs.     \`$$b:   Kernel: 6.1.0-dev
+// \`d$$'     ,$P"'   .    $$$    Uptime: ${randomUptime} days
+//  $$P      d$'     ,    $$P    Shell: bash 5.2.0
+//  $$:      $$.   -    ,d$$'    Theme: Minimal-Dark
+//  $$;      Y$b._   _,d$P'      CPU: i7-Developer
+//  Y$$.    \`.\`"Y$$$$P"'         GPU: NVIDIA RTX Skills
+//  \`$$b      "-.__              Memory: 32GB
+//   \`Y$$                        Disk: 1TB SSD
+//    \`Y$$.
+//      \`$$b.
+//        \`Y$$b.
+//           \`"Y$b._
+//               \`"""
+//   `);
+//   }, []);
+
+
+useEffect(() => {
+  const randomUptime = Math.floor(Math.random() * 100);
+  const randomMemory = Math.floor(Math.random() * 16) + 8;
+  const packages = Math.floor(Math.random() * 1000) + 500;
+  
+  setUptime(randomUptime);
+  setNeofetchArt(
+`                   -
+                  .o+'.                  OS: Arch Linux x86_64
+                 \`ooo/                   Host: Portfolio Desktop  
+                \`+oooo:                  Kernel: 6.6.10-arch1-1
+               \`+oooooo:                 Uptime: ${randomUptime} days
+               -+oooooo+:                Packages: ${packages} (pacman)
+             \`/:-:++oooo+:               Shell: zsh 5.9
+            \`/++++/+++++++:              DE: Hyprland
+           \`/++++++++++++++:             WM: Hyprland
+          \`/+++oooooo+++++++/            Terminal: alacritty
+         ./ooosssso++osssssso+'          CPU: AMD Ryzen 7 5800X (16) @ 3.8GHz
+        .oossssso-\`\`\`/ossssss+'          GPU: NVIDIA GeForce RTX 3070
+       -osssssso.      :ssssssso.        Memory: ${randomMemory}GiB / 32GiB
+      :osssssss/        osssso+++.
+     /ossssssss/        +ssssooo/-
+   \`/ossssso+/:-        -:/+osssso+-
+  \`+sso+:-'                 \`.-/+oso:
+ \`++:.                           \`-/+/
+.\`                                 \`/`
+  );
+}, []);
 
   
   const ASCII_ART = `
