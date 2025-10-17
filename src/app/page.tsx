@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Dock } from '@/components/desktop/dock';
 import dynamic from 'next/dynamic';
 import { 
@@ -15,7 +15,13 @@ import {
   Pencil, 
   Trash, 
   Music, 
-  Globe 
+  Globe,
+  Users,
+  Network,
+  Calculator,
+  Calendar,
+  Mail,
+  MessageCircle
 } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 import { Settings } from '@/components/desktop/settings';
@@ -73,7 +79,18 @@ const Browser = dynamic(() => import('@/components/desktop/browser').then(mod =>
   loading: () => null,
 });
 
-export type AppId = 'terminal' | 'settings' | 'home' | 'editor' | 'music' | 'browser';
+// Import the new Calculator and Calendar components
+const CalculatorApp = dynamic(() => import('@/components/desktop/calculator').then(mod => mod.Calculator), {
+  ssr: false,
+  loading: () => null,
+});
+
+const CalendarApp = dynamic(() => import('@/components/desktop/calendar').then(mod => mod.Calendar), {
+  ssr: false,
+  loading: () => null,
+});
+
+export type AppId = 'terminal' | 'settings' | 'home' | 'editor' | 'music' | 'browser' | 'calculator' | 'calendar' | 'mail' | 'messages';
 
 export interface App {
   id: AppId;
@@ -81,6 +98,8 @@ export interface App {
   icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>;
   component?: React.ReactNode;
   defaultSize: { width: number; height: number };
+  category?: string;
+  description?: string;
 }
 
 export interface WindowInstance {
@@ -107,7 +126,7 @@ export default function Desktop() {
   const [itemToRename, setItemToRename] = React.useState<string | null>(null);
   const [renameValue, setRenameValue] = React.useState("");
 
-  // Apps configuration
+  // Enhanced Apps configuration with working Calculator and Calendar
   const APPS: Record<AppId, App> = React.useMemo(() => ({
     terminal: {
       id: 'terminal',
@@ -115,6 +134,8 @@ export default function Desktop() {
       icon: Terminal,
       component: <TerminalComponent />,
       defaultSize: { width: 800, height: 500 },
+      category: 'system',
+      description: 'Command line interface'
     },
     settings: {
       id: 'settings',
@@ -122,18 +143,24 @@ export default function Desktop() {
       icon: SettingsIcon,
       component: <Settings />,
       defaultSize: { width: 500, height: 600 },
+      category: 'system',
+      description: 'System configuration'
     },
     home: {
       id: 'home',
       title: 'File Manager',
       icon: HomeIcon,
       defaultSize: { width: 700, height: 500 },
+      category: 'utilities',
+      description: 'Browse and manage files'
     },
     editor: {
       id: 'editor',
       title: 'Text Editor',
       icon: FileText,
       defaultSize: { width: 600, height: 450 },
+      category: 'utilities',
+      description: 'Edit text files'
     },
     music: {
       id: 'music',
@@ -141,6 +168,8 @@ export default function Desktop() {
       icon: Music,
       component: <MusicPlayer fileSystem={fileSystem} onOpenFile={(path) => openWindow('music', path)} />,
       defaultSize: { width: 400, height: 550 },
+      category: 'multimedia',
+      description: 'Play audio files'
     },
     browser: {
       id: 'browser',
@@ -148,6 +177,44 @@ export default function Desktop() {
       icon: Globe,
       component: <Browser />,
       defaultSize: { width: 1024, height: 768 },
+      category: 'internet',
+      description: 'Browse the web'
+    },
+    calculator: {
+      id: 'calculator',
+      title: 'Calculator',
+      icon: Calculator,
+      component: <CalculatorApp />,
+      defaultSize: { width: 320, height: 480 },
+      category: 'utilities',
+      description: 'Scientific calculator'
+    },
+    calendar: {
+      id: 'calendar',
+      title: 'Calendar',
+      icon: Calendar,
+      component: <CalendarApp />,
+      defaultSize: { width: 800, height: 600 },
+      category: 'utilities',
+      description: 'Schedule and events'
+    },
+    mail: {
+      id: 'mail',
+      title: 'Email',
+      icon: Mail,
+      component: <div className="p-8 text-white text-center">Email Client - Coming Soon</div>,
+      defaultSize: { width: 800, height: 600 },
+      category: 'internet',
+      description: 'Email client'
+    },
+    messages: {
+      id: 'messages',
+      title: 'Messages',
+      icon: MessageCircle,
+      component: <div className="p-8 text-white text-center">Messaging App - Coming Soon</div>,
+      defaultSize: { width: 400, height: 600 },
+      category: 'internet',
+      description: 'Instant messaging'
     },
   }), [fileSystem]);
 
@@ -321,37 +388,68 @@ export default function Desktop() {
     });
   }, [toast]);
 
-  // Desktop items and icons
-  const desktopItems = React.useMemo(() => {
-    const homeDir = getPath([], fileSystem);
-    if (homeDir?.type !== 'directory' || !homeDir.children.Home || homeDir.children.Home.type !== 'directory') {
-      return [];
-    }
-
-    return Object.values(homeDir.children.Home.children).map(item => ({
-      id: item.name,
-      name: item.name,
-      icon: item.type === 'directory' ? (item.name === 'Music' ? Music : Folder) : FileText,
-      path: `~/Home/${item.name}`,
-      action: () => openWindow(item.type === 'directory' ? 'home' : 'editor', `~/Home/${item.name}`),
-    }));
-  }, [fileSystem, openWindow]);
-
+  // System icons including Calculator and Calendar
   const systemIcons = [
-    { id: 'home-icon', name: 'Home', icon: HomeIcon, path: '~/Home', action: () => openWindow('home', '~/Home') },
-    { id: 'trash', name: 'Trash', icon: Trash2, path: '~/Trash', action: () => console.log('Open Trash') },
+    { 
+      id: 'home-icon', 
+      name: 'Home', 
+      icon: HomeIcon, 
+      path: '~/Home', 
+      action: () => openWindow('home', '~/Home'),
+      color: 'text-white'
+    },
+    // { 
+    //   id: 'calculator', 
+    //   name: 'Calculator', 
+    //   icon: Calculator, 
+    //   path: '', 
+    //   action: () => openWindow('calculator'),
+    //   color: 'text-white'
+    // },
+    // { 
+    //   id: 'calendar', 
+    //   name: 'Calendar', 
+    //   icon: Calendar, 
+    //   path: '', 
+    //   action: () => openWindow('calendar'),
+    //   color: 'text-white'
+    // },
+    // { 
+    //   id: 'trash', 
+    //   name: 'Trash', 
+    //   icon: Trash2, 
+    //   path: '~/Trash', 
+    //   action: () => console.log('Open Trash'),
+    //   color: 'text-white'
+    // },
+    // { 
+    //   id: 'network', 
+    //   name: 'Network', 
+    //   icon: Network, 
+    //   path: '~/Network', 
+    //   action: () => console.log('Open Network'),
+    //   color: 'text-white'
+    // },
+    // { 
+    //   id: 'users', 
+    //   name: 'Users', 
+    //   icon: Users, 
+    //   path: '~/Users', 
+    //   action: () => console.log('Open Users'),
+    //   color: 'text-white'
+    // },
   ];
 
-  const allDesktopIcons = [...systemIcons, ...desktopItems];
+  const allDesktopIcons = systemIcons;
 
   // Context menus
   const renderDesktopContextMenu = () => (
-    <ContextMenuContent className="bg-white/10 backdrop-blur-md border-white/20">
-      <ContextMenuItem onClick={() => handleCreateItem('~/Home', 'folder')}>
+    <ContextMenuContent className="bg-gray-900/95 backdrop-blur-xl border-gray-700/50 text-white">
+      <ContextMenuItem onClick={() => handleCreateItem('~/Home', 'folder')} className="hover:bg-gray-700/50">
         <FolderPlus className="mr-2 h-4 w-4" />
         New Folder
       </ContextMenuItem>
-      <ContextMenuItem onClick={() => handleCreateItem('~/Home', 'file')}>
+      <ContextMenuItem onClick={() => handleCreateItem('~/Home', 'file')} className="hover:bg-gray-700/50">
         <FilePlus className="mr-2 h-4 w-4" />
         New Text File
       </ContextMenuItem>
@@ -359,14 +457,14 @@ export default function Desktop() {
   );
 
   const renderItemContextMenu = (item: { id: string; name: string; path: string }) => (
-    <ContextMenuContent className="bg-white/10 backdrop-blur-md border-white/20">
-      <ContextMenuItem onClick={() => handleRename(item.path, item.name)}>
+    <ContextMenuContent className="bg-gray-900/95 backdrop-blur-xl border-gray-700/50 text-white">
+      <ContextMenuItem onClick={() => handleRename(item.path, item.name)} className="hover:bg-gray-700/50">
         <Pencil className="mr-2 h-4 w-4" />
         Rename
       </ContextMenuItem>
       <ContextMenuItem 
         onClick={() => setItemToDelete(item.path)} 
-        className="text-red-400 focus:text-red-300"
+        className="text-red-400 hover:text-red-300 hover:bg-red-500/20"
       >
         <Trash className="mr-2 h-4 w-4" />
         Delete
@@ -392,7 +490,7 @@ export default function Desktop() {
   return (
     <>
       <main
-        className="h-screen w-screen overflow-hidden font-sans relative bg-cover bg-center"
+        className="h-screen w-screen overflow-hidden font-sans relative bg-cover bg-center select-none"
         style={{
           backgroundImage: "url('./arch-linux.jpg')",
         }}
@@ -404,20 +502,33 @@ export default function Desktop() {
               onLock={handleLock} 
             />
             
-            {/* Desktop Icons */}
-            <div className="p-4 pt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+            {/* System Icons including Calculator and Calendar */}
+            <div className="p-6 pt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6">
               {allDesktopIcons.map(item => {
                 const Icon = item.icon;
                 const isRenaming = itemToRename === item.path;
+                const iconColor = 'text-white';
 
                 return (
                   <ContextMenu key={item.id}>
                     <ContextMenuTrigger>
-                      <div 
-                        className="flex flex-col items-center gap-2 w-24 text-center cursor-pointer"
+                      <motion.div 
+                        className="flex flex-col items-center gap-3 w-28 text-center cursor-pointer group"
                         onDoubleClick={item.action}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        <Icon className="h-12 w-12 text-white drop-shadow-lg" />
+                        {/* Enhanced Icon Container */}
+                        <div className="relative">
+                          <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 group-hover:bg-white/15 group-hover:border-white/30 transition-all duration-300 shadow-lg">
+                            <Icon className={`h-6 w-6 ${iconColor} drop-shadow-lg transition-transform duration-300 group-hover:scale-110`} />
+                          </div>
+                          
+                          {/* Selection Indicator */}
+                          <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-white/40 transition-all duration-300" />
+                        </div>
+                        
+                        {/* Label */}
                         {isRenaming ? (
                           <form onSubmit={handleRenameSubmit} className="w-full">
                             <Input 
@@ -431,18 +542,18 @@ export default function Desktop() {
                                   setRenameValue("");
                                 }
                               }}
-                              className="text-sm h-6 px-1 bg-white/90 text-black border-none focus:ring-1 focus:ring-white/30"
+                              className="text-sm h-7 px-2 bg-white/90 text-black border-none focus:ring-2 focus:ring-cyan-500/50 rounded-md backdrop-blur-sm"
                               autoFocus
                             />
                           </form>
                         ) : (
-                          <span className="text-white text-sm font-medium drop-shadow-md break-words w-full">
+                          <span className="text-white text-sm font-medium drop-shadow-lg break-words w-full bg-black/30 backdrop-blur-sm rounded-md px-2 py-1 transition-all duration-300 group-hover:bg-black/50">
                             {item.name}
                           </span>
                         )}
-                      </div>
+                      </motion.div>
                     </ContextMenuTrigger>
-                    {item.id !== 'trash' && item.id !== 'home-icon' && renderItemContextMenu(item)}
+                    {item.id !== 'trash' && item.id !== 'home-icon' && item.id !== 'calculator' && item.id !== 'calendar' && renderItemContextMenu(item)}
                   </ContextMenu>
                 );
               })}
@@ -534,18 +645,26 @@ export default function Desktop() {
         {isLocked && <LockScreen onUnlock={handleUnlock} />}
       </AnimatePresence>
 
-      {/* Delete Confirmation Dialog */}
+      {/* Enhanced Delete Confirmation Dialog */}
       <AlertDialog open={!!itemToDelete} onOpenChange={(isOpen) => !isOpen && setItemToDelete(null)}>
-        <AlertDialogContent className="bg-white/10 backdrop-blur-md border-white/20">
+        <AlertDialogContent className="bg-gray-900/95 backdrop-blur-xl border-gray-700/50 text-white">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-white">Delete Item</AlertDialogTitle>
             <AlertDialogDescription className="text-white/70">
-              This action cannot be undone. The item will be permanently deleted.
+              Are you sure you want to delete "{itemToDelete?.split('/').pop()}"? This action cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => setItemToDelete(null)}>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDeleteItem} variant="destructive">
+            <AlertDialogCancel 
+              onClick={() => setItemToDelete(null)}
+              className="bg-gray-700/50 border-gray-600/50 hover:bg-gray-600/50 text-white"
+            >
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={handleDeleteItem} 
+              className="bg-red-500/80 border-red-400/50 hover:bg-red-500 text-white"
+            >
               Delete
             </AlertDialogAction>
           </AlertDialogFooter>

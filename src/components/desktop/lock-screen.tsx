@@ -14,7 +14,7 @@ type LockScreenProps = {
   userAvatar?: string;
 };
 
-export function LockScreen({ onUnlock, userName = "arch", userAvatar }: LockScreenProps) {
+export function LockScreen({ onUnlock, userName = "Zayn Butt", userAvatar }: LockScreenProps) {
   const [time, setTime] = useState('');
   const [date, setDate] = useState('');
   const [password, setPassword] = useState('');
@@ -112,9 +112,10 @@ export function LockScreen({ onUnlock, userName = "arch", userAvatar }: LockScre
           </div>
         </div>
         
-        <div className="text-sm font-mono bg-black/20 px-3 py-1 rounded-lg border border-white/10">
+        {/* <div className="text-sm font-mono bg-black/20 px-3 py-1 rounded-lg border border-white/10">
           Arch Linux
-        </div>
+        </div> */}
+        <img src="./arch.svg" alt="" className='w-12'/>
       </motion.div>
 
       <div className="flex items-center justify-center min-h-screen p-8">
@@ -139,7 +140,7 @@ export function LockScreen({ onUnlock, userName = "arch", userAvatar }: LockScre
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
-            className="w-full bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl p-8 shadow-2xl"
+            className="w-full bg-black/30 backdrop-blur-2xl border border-white/10 rounded-2xl p-8 shadow-2xl"
           >
             {/* User Avatar */}
             <motion.div
@@ -149,12 +150,13 @@ export function LockScreen({ onUnlock, userName = "arch", userAvatar }: LockScre
               className="flex flex-col items-center mb-6"
             >
               <div className="relative">
-                <Avatar className="h-16 w-16 border-2 border-white/20 bg-white/10">
+                <Avatar className="h-16 w-16 border-2 border-white/20 bg-black/30">
                   {userAvatar ? (
                     <AvatarImage src={userAvatar} alt={userName} />
                   ) : (
                     <AvatarFallback className="bg-transparent">
-                      <User className="h-8 w-8 text-white/60" />
+                      {/* <User className="h-8 w-8 text-white/60" /> */}
+                      <img src="./mypic.jpg" alt="" />
                     </AvatarFallback>
                   )}
                 </Avatar>
@@ -184,7 +186,7 @@ export function LockScreen({ onUnlock, userName = "arch", userAvatar }: LockScre
                   onChange={handlePasswordChange}
                   onKeyPress={handleKeyPress}
                   placeholder="Enter your password"
-                  className="w-full bg-white/10 border-white/20 pl-10 pr-4 h-12 text-white placeholder:text-white/30 focus:bg-white/15 focus:border-white/30 rounded-xl transition-all duration-200 font-mono"
+                  className="w-full bg-black/30 border-white/20 pl-10 pr-4 h-12 text-white placeholder:text-white/30 focus:bg-black/30 focus:border-white/30 rounded-xl transition-all duration-200 font-mono"
                   autoFocus
                   disabled={isLoading}
                 />
@@ -207,7 +209,7 @@ export function LockScreen({ onUnlock, userName = "arch", userAvatar }: LockScre
                 type="submit"
                 onClick={handleUnlockAttempt}
                 disabled={isLoading || !password.trim()}
-                className="w-full h-12 bg-white/20 hover:bg-white/30 border border-white/20 text-white rounded-xl transition-all duration-200 font-medium flex items-center justify-center gap-2 backdrop-blur-sm"
+                className="w-full h-12 bg-black/30 hover:bg-black/30 border border-white/20 text-white rounded-xl transition-all duration-200 font-medium flex items-center justify-center gap-2 backdrop-blur-sm"
               >
                 {isLoading ? (
                   <motion.div
@@ -217,7 +219,7 @@ export function LockScreen({ onUnlock, userName = "arch", userAvatar }: LockScre
                   />
                 ) : (
                   <>
-                    Authenticate
+                    Login to Home
                     <ArrowRight size={16} />
                   </>
                 )}

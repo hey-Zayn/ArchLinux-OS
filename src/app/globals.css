@@ -111,3 +111,19 @@
   .minimize { background-color: #febc2e; }
   .maximize { background-color: #28c840; }
 }
+
+
+.terminal-output {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: pre;
+}
+
+.terminal-art {
+  color: #4f97d7; /* Arch blue color */
+}
+
+.terminal-info {
+  color: #ffffff; /* White for info text */
+}
