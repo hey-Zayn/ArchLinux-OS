@@ -2,8 +2,10 @@
 
 <div align="center">
 
-![Linux OS Clone Demo](https://via.placeholder.com/800x450/0f0f0f/ffffff?text=Linux+OS+Clone+Demo) <!-- Replace with actual screenshot -->
-![Terminal Preview](./public/Home.png) <!-- Replace with your actual screenshot -->
+![Linux OS Clone Demo](./public/Home.png) <!-- Replace with actual screenshot -->
+![Linux OS Clone Demo](./public/lockscreen.png) <!-- Replace with actual screenshot -->
+![Linux OS Clone Demo](./public/neofetch.png) <!-- Replace with actual screenshot -->
+
 **A web-based Linux desktop environment with full desktop functionality**
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-00ff00?style=for-the-badge&logo=vercel&logoColor=black)](https://your-linux-clone.vercel.app)
