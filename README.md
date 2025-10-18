@@ -2,18 +2,18 @@
 
 <div align="center">
 
-  
+ # 🐧 Linux OS Desktop 
 ![Linux OS Clone Demo](./public/Home.png) <!-- Replace with actual screenshot -->
-# 🐧 Linux OS Desktop
 
 
 
-![Linux OS Clone Demo](./public/lockscreen.png) <!-- Replace with actual screenshot -->
 # 🐧 Linux OS Lock Screen
+![Linux OS Clone Demo](./public/lockscreen.png) <!-- Replace with actual screenshot -->
 
 
-![Linux OS Clone Demo](./public/neofetch.png) <!-- Replace with actual screenshot -->
 # 🐧 Linux OS Lock Neofetch terminal 
+![Linux OS Clone Demo](./public/neofetch.png) <!-- Replace with actual screenshot -->
+
 
 
 **A web-based Linux desktop environment with full desktop functionality**
