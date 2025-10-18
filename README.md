@@ -12,19 +12,19 @@
 
 
 
-# 🐧 Linux OS Lock  Terminal 
+# 🐧 Linux OS Terminal 
 ![Linux OS Clone Demo](./public/terminal.png) <!-- Replace with actual screenshot -->
 
 
-# 🐧 Linux OS Lock Neofetch terminal 
+# 🐧 Linux OS Neofetch terminal 
 ![Linux OS Clone Demo](./public/neofetch.png) <!-- Replace with actual screenshot -->
 
 
-# 🐧 Linux OS Lock Start Menu
+# 🐧 Linux OS Start Menu
 ![Linux OS Clone Demo](./public/startupmenu.png) <!-- Replace with actual screenshot -->
 
 
-# 🐧 Linux OS Lock Apps Menu
+# 🐧 Linux OS Apps Menu
 ![Linux OS Clone Demo](./public/apps.png) <!-- Replace with actual screenshot -->
 
 
@@ -80,5 +80,68 @@ cd linux-os-clone
 # Install dependencies
 npm install
 
+
+````
 # Start development server
 npm run dev
+
+
+# 🐧 Linux OS Terminal Commands
+![Linux OS Clone Demo](./public/terminal.png) <!-- Replace with actual screenshot -->
+
+
+
+neofetch - Show specifications
+```
+neofetch 
+```
+
+
+
+help - Show available commands
+```
+help 
+```
+
+
+
+about - Learn about me
+```
+
+about
+```
+
+
+
+
+skills - View my technical skills
+
+```
+skills 
+```
+
+
+projects - See my projects
+```
+projects
+```
+
+
+banner - Show welcome banner
+```
+banner 
+```
+
+contact - Get in touch
+```
+contact
+```
+
+
+clear - Clear the terminal
+````
+clear
+````
+
+theme [name] - Change terminal theme
+
