@@ -26,6 +26,15 @@
 | ![Start Menu](./public/startupmenu.png) | ![Apps](./public/apps.png) | ![Neofetch](./public/neofetch.png) |
 
 </div>
+
+
+
+<div align="center">
+  # 🐧 Linux OS Lockscreen password is "arch"
+  ![Lock Screen](./public/lockscreen.png) 
+  
+</div>
+
 ## ✨ Features
 
 ### 🖥️ Desktop Environment
