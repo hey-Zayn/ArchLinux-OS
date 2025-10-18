@@ -80,8 +80,8 @@ npm run dev
 
 💻 Terminal Commands
 
-# System Commands:
-
+System Commands:
+```
 neofetch      # Display system specifications and info
 help          # Show all available commands
 about         # Learn about the developer
@@ -90,14 +90,15 @@ projects      # Explore completed projects
 banner        # Display welcome banner
 contact       # Get contact information
 clear         # Clear terminal screen
-
+```
 
 # File System Commands : 
+```
 ls            # List directory contents
 cd [dir]      # Change directory
 pwd           # Print working directory
 cat [file]    # Display file content
-
+```
 
 🛠️ Tech Stack
 Framework: Next.js 14 (App Router)
