@@ -100,21 +100,21 @@ pwd           # Print working directory
 cat [file]    # Display file content
 ```
 
-🛠️ Tech Stack
+
+
+# 🛠️ Tech Stack: 
+
+
 Framework: Next.js 14 (App Router)
-
 Language: TypeScript
-
 Styling: Tailwind CSS + Custom CSS
-
 State Management: React Context + Custom Hooks
-
 Icons: Lucide React + Custom SVG
 
 
 
 
-Usage Guide
+# Usage Guide
 Desktop Interaction
 
 Click on desktop icons to launch applications
@@ -124,7 +124,7 @@ Use the start menu (bottom left) to access all apps
 Drag windows to move them around the desktop
 
 
-👨‍💻 Author
+# 👨‍💻 Author
 Zain ul Abideen
 
 Portfolio: portfolio-terminal-self.vercel.app
@@ -135,7 +135,7 @@ LinkedIn: Zain ul Abideen
 
 Email: zaynobusiness@gmail.com
 
-🙏 Acknowledgments
+# 🙏 Acknowledgments
 Inspired by classic Linux desktop environments (GNOME, KDE)
 
 Linux community for continuous inspiration
@@ -149,7 +149,7 @@ Open-source contributors worldwide
 ⭐ If you find this project interesting, don't forget to give it a star!
 "Simulating complex systems to master web technologies"
 
-</div> ```
+</div> 
 Right-click for context menus
 
 Terminal Usage
