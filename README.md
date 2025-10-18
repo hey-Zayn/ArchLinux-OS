@@ -24,11 +24,15 @@
 ![Linux OS Clone Demo](./public/startupmenu.png) <!-- Replace with actual screenshot -->
 
 
+# 🐧 Linux OS Lock Apps Menu
+![Linux OS Clone Demo](./public/apps.png) <!-- Replace with actual screenshot -->
+
+
 
 
 **A web-based Linux desktop environment with full desktop functionality**
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-00ff00?style=for-the-badge&logo=vercel&logoColor=black)](https://your-linux-clone.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-00ff00?style=for-the-badge&logo=vercel&logoColor=black)](#)
 [![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
 
