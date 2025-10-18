@@ -146,24 +146,8 @@ Open-source contributors worldwide
 
 
 <div align="center">
-⭐ If you find this project interesting, don't forget to give it a star!
+# ⭐ If you find this project interesting, don't forget to give it a star!
 "Simulating complex systems to master web technologies"
 
 </div> 
-Right-click for context menus
 
-Terminal Usage
-
-Type help to see all available commands
-
-Use neofetch to display system information
-
-Navigate through projects and skills using commands
-
-System Features
-
-Lock the system using the power menu
-
-Change themes through system settings
-
-Manage multiple application windows
