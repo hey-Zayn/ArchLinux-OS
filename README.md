@@ -32,6 +32,8 @@
 
   # 🐧 Linux OS Lockscreen password is "arch"
   ![Lock Screen](./public/lockscreen.png) 
+
+  This is the password for the lockscreen
   ```
 arch
 ```
