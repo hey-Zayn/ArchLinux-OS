@@ -106,10 +106,15 @@ cat [file]    # Display file content
 
 
 Framework: Next.js 14 (App Router)
+
 Language: TypeScript
+
 Styling: Tailwind CSS + Custom CSS
+
 State Management: React Context + Custom Hooks
+
 Icons: Lucide React + Custom SVG
+
 
 
 
@@ -131,7 +136,7 @@ Portfolio: portfolio-terminal-self.vercel.app
 
 GitHub: @hey-Zayn
 
-LinkedIn: Zain ul Abideen
+LinkedIn: https://www.linkedin.com/in/zayn-butt/
 
 Email: zaynobusiness@gmail.com
 
