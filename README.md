@@ -11,8 +11,18 @@
 ![Linux OS Clone Demo](./public/lockscreen.png) <!-- Replace with actual screenshot -->
 
 
+
+# 🐧 Linux OS Lock  Terminal 
+![Linux OS Clone Demo](./public/terminal.png) <!-- Replace with actual screenshot -->
+
+
 # 🐧 Linux OS Lock Neofetch terminal 
 ![Linux OS Clone Demo](./public/neofetch.png) <!-- Replace with actual screenshot -->
+
+
+# 🐧 Linux OS Lock Start Menu
+![Linux OS Clone Demo](./public/startupmenu.png) <!-- Replace with actual screenshot -->
+
 
 
 
