@@ -1,40 +1,29 @@
-# 🐧 Linux OS Clone
+# 🐧 Linux OS Clone - Web-Based Desktop Environment
 
 <div align="center">
 
- # 🐧 Linux OS Desktop 
-![Linux OS Clone Demo](./public/Home.png) <!-- Replace with actual screenshot -->
+![Linux OS Clone](./public/Home.png)
 
+**A fully functional Linux desktop environment built with Next.js 14 - Experience the power of Linux in your browser**
 
-
-# 🐧 Linux OS Lock Screen
-![Linux OS Clone Demo](./public/lockscreen.png) <!-- Replace with actual screenshot -->
-
-
-
-# 🐧 Linux OS Terminal 
-![Linux OS Clone Demo](./public/terminal.png) <!-- Replace with actual screenshot -->
-
-
-# 🐧 Linux OS Neofetch terminal 
-![Linux OS Clone Demo](./public/neofetch.png) <!-- Replace with actual screenshot -->
-
-
-# 🐧 Linux OS Start Menu
-![Linux OS Clone Demo](./public/startupmenu.png) <!-- Replace with actual screenshot -->
-
-
-# 🐧 Linux OS Apps Menu
-![Linux OS Clone Demo](./public/apps.png) <!-- Replace with actual screenshot -->
-
-
-
-
-**A web-based Linux desktop environment with full desktop functionality**
-
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-00ff00?style=for-the-badge&logo=vercel&logoColor=black)](#)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-00ff00?style=for-the-badge&logo=vercel&logoColor=black)](https://your-live-demo-link.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hey-Zayn)
+
+</div>
+
+## 📸 Screenshots
+
+<div align="center">
+
+| Desktop Environment | Lock Screen | Terminal |
+|---------------------|-------------|----------|
+| ![Desktop](./public/Home.png) | ![Lock Screen](./public/lockscreen.png) | ![Terminal](./public/terminal.png) |
+
+| Start Menu | Applications | System Info |
+|------------|--------------|-------------|
+| ![Start Menu](./public/startupmenu.png) | ![Apps](./public/apps.png) | ![Neofetch](./public/neofetch.png) |
 
 </div>
 
@@ -45,6 +34,7 @@
 - **Start Menu/Application Launcher** with categorized apps
 - **System Tray** with clock, notifications, and system controls
 - **File Explorer** with directory navigation and file operations
+- **Lock Screen** with authentication simulation
 - **Multiple Workspaces/Desktop Panels**
 
 ### 🛠️ System Applications
@@ -52,8 +42,8 @@
 - **Text Editor** with syntax highlighting
 - **Calculator** with scientific functions
 - **System Settings** with theme customization
-- **Web Browser** (basic navigation)
-- **Media Player** for audio/video files
+- **Application Launcher** with categorized programs
+- **System Monitor** with performance metrics
 
 ### 🎮 Interactive Elements
 - **Window Management** (minimize, maximize, close)
@@ -61,14 +51,15 @@
 - **Right-click Context Menus**
 - **Keyboard Shortcuts** (Alt+Tab, Super key, etc.)
 - **Multiple Theme Support** (Light, Dark, Classic Linux)
+- **Real-time Command Execution**
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
-- npm, yarn, pnpm, or bun
+- **Node.js** 18 or higher
+- **npm**, **yarn**, **pnpm**, or **bun**
 
-### Installation
+### Installation & Development
 
 ```bash
 # Clone the repository
@@ -80,95 +71,5 @@ cd linux-os-clone
 # Install dependencies
 npm install
 
-
-````
 # Start development server
 npm run dev
-
-
-# 🐧 Linux OS Terminal Commands
-![Linux OS Clone Demo](./public/terminal.png) <!-- Replace with actual screenshot -->
-
-
-
-neofetch - Show specifications
-```
-neofetch 
-```
-
-
-
-help - Show available commands
-```
-help 
-```
-
-
-
-about - Learn about me
-```
-
-about
-```
-
-
-
-
-skills - View my technical skills
-
-```
-skills 
-```
-
-
-projects - See my projects
-```
-projects
-```
-
-
-banner - Show welcome banner
-```
-banner 
-```
-
-contact - Get in touch
-```
-contact
-```
-
-
-clear - Clear the terminal
-````
-clear
-````
-
-ls - List directory contents
-cd - Change directory
-pwd - Print working directory
-cat - Display file content
-help - Show available commands
-neofetch - Display system information
-
-
-🛠️ Tech Stack
-Framework: Next.js 14 (App Router)
-
-Language: TypeScript
-
-Styling: Tailwind CSS + Custom CSS
-
-State Management: React Context + Custom Hooks
-
-Icons: Lucide React + Custom SVG
-
-
-Zain ul Abideen
-
-Website: portfolio-terminal-self.vercel.app
-
-GitHub: @hey-Zayn
-
-LinkedIn: Zain ul Abideen
-
-Email: zaynobusiness
