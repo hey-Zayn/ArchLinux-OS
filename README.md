@@ -26,7 +26,6 @@
 | ![Start Menu](./public/startupmenu.png) | ![Apps](./public/apps.png) | ![Neofetch](./public/neofetch.png) |
 
 </div>
-
 ## ✨ Features
 
 ### 🖥️ Desktop Environment
@@ -71,5 +70,99 @@ cd linux-os-clone
 # Install dependencies
 npm install
 
+
+
 # Start development server
 npm run dev
+
+
+````
+
+💻 Terminal Commands
+
+# System Commands:
+
+neofetch      # Display system specifications and info
+help          # Show all available commands
+about         # Learn about the developer
+skills        # View technical skills and technologies
+projects      # Explore completed projects
+banner        # Display welcome banner
+contact       # Get contact information
+clear         # Clear terminal screen
+
+
+# File System Commands : 
+ls            # List directory contents
+cd [dir]      # Change directory
+pwd           # Print working directory
+cat [file]    # Display file content
+
+
+🛠️ Tech Stack
+Framework: Next.js 14 (App Router)
+
+Language: TypeScript
+
+Styling: Tailwind CSS + Custom CSS
+
+State Management: React Context + Custom Hooks
+
+Icons: Lucide React + Custom SVG
+
+
+
+
+Usage Guide
+Desktop Interaction
+
+Click on desktop icons to launch applications
+
+Use the start menu (bottom left) to access all apps
+
+Drag windows to move them around the desktop
+
+
+👨‍💻 Author
+Zain ul Abideen
+
+Portfolio: portfolio-terminal-self.vercel.app
+
+GitHub: @hey-Zayn
+
+LinkedIn: Zain ul Abideen
+
+Email: zaynobusiness@gmail.com
+
+🙏 Acknowledgments
+Inspired by classic Linux desktop environments (GNOME, KDE)
+
+Linux community for continuous inspiration
+
+Next.js team for the amazing framework
+
+Open-source contributors worldwide
+
+
+<div align="center">
+⭐ If you find this project interesting, don't forget to give it a star!
+"Simulating complex systems to master web technologies"
+
+</div> ```
+Right-click for context menus
+
+Terminal Usage
+
+Type help to see all available commands
+
+Use neofetch to display system information
+
+Navigate through projects and skills using commands
+
+System Features
+
+Lock the system using the power menu
+
+Change themes through system settings
+
+Manage multiple application windows
