@@ -29,11 +29,13 @@
 
 
 
-<div align="center">
+
   # 🐧 Linux OS Lockscreen password is "arch"
   ![Lock Screen](./public/lockscreen.png) 
-  
-</div>
+  ```
+arch
+```
+
 
 ## ✨ Features
 
