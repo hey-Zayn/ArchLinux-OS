@@ -143,5 +143,32 @@ clear - Clear the terminal
 clear
 ````
 
-theme [name] - Change terminal theme
+ls - List directory contents
+cd - Change directory
+pwd - Print working directory
+cat - Display file content
+help - Show available commands
+neofetch - Display system information
 
+
+🛠️ Tech Stack
+Framework: Next.js 14 (App Router)
+
+Language: TypeScript
+
+Styling: Tailwind CSS + Custom CSS
+
+State Management: React Context + Custom Hooks
+
+Icons: Lucide React + Custom SVG
+
+
+Zain ul Abideen
+
+Website: portfolio-terminal-self.vercel.app
+
+GitHub: @hey-Zayn
+
+LinkedIn: Zain ul Abideen
+
+Email: zaynobusiness
